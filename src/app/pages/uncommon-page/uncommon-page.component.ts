@@ -9,6 +9,7 @@ import {
   SlicePipe,
   TitleCasePipe,
 } from '@angular/common';
+import { interval, map, tap } from 'rxjs';
 
 const client1 = {
   name: 'Baldo',
@@ -95,4 +96,10 @@ export default class UncommonPageComponent {
       console.log('Promesa finalizada');
     }, 3500);
   });
+
+  // AsyncPipe con Observable
+  myObservableTimer = interval(2000).pipe(
+    map((value) => value + 1),
+    tap((value) => console.log('tap', value)),
+  );
 }
