@@ -66,4 +66,12 @@
       }
     </ul>
   </app-card>
+
+  <app-card title="AsyncPipe">
+    <!-- <p>{{ promisedValue | async }}</p> -->
+
+    @if (promisedValue | async; as value) {
+      <p class="text-primary">{{ value }}</p>
+    }
+  </app-card>
 </div>

@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
 import {
+  AsyncPipe,
   I18nPluralPipe,
   I18nSelectPipe,
   JsonPipe,
@@ -33,6 +34,7 @@ const client2 = {
     JsonPipe,
     KeyValuePipe,
     TitleCasePipe,
+    AsyncPipe,
   ],
   templateUrl: './uncommon-page.component.html',
 })
@@ -84,4 +86,13 @@ export default class UncommonPageComponent {
     age: 29,
     address: 'Culiacan, Sinaloa',
   };
+
+  // AsyncPipe
+  promisedValue: Promise<string> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('Tenemos un error en la data');
+      // resolve('Tenemos data en la promesa');
+      console.log('Promesa finalizada');
+    }, 3500);
+  });
 }
