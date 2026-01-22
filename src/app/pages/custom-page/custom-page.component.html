@@ -28,14 +28,15 @@
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
-      <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Puede Volar</th>
-        <th>Color</th>
-        <th>Creador</th>
-      </tr>
+      @for (hero of heroes(); track hero.id; let i = $index) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.canFly }}</td>
+          <td>{{ hero.color }}</td>
+          <td>{{ hero.creator }}</td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>
